@@ -1,12 +1,16 @@
 public class Tudengikaart extends Kaart {
     private String ülikool;
-    private boolean isicKaart;
+    private String isicKaart;
 
 
     public Tudengikaart(String nimi, String email, String telefoniNumber, String ülikool, boolean isicKaart) {
         super(nimi, email, telefoniNumber);
         this.ülikool = ülikool;
-        this.isicKaart = isicKaart;
+        if (isicKaart){
+            this.isicKaart = "Isic kaart olemas";
+        } else {
+            this.isicKaart = "Isic kaarti pole";
+        }
     }
 
     public String getÜlikool() {
@@ -17,11 +21,11 @@ public class Tudengikaart extends Kaart {
         this.ülikool = ülikool;
     }
 
-    public boolean kasIsicKaart() {
+    public String kasIsicKaart() {
         return isicKaart;
     }
 
-    public void setIsicKaart(boolean isicKaart) {
+    public void setIsicKaart(String isicKaart) {
         this.isicKaart = isicKaart;
     }
 }

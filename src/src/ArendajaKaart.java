@@ -4,13 +4,17 @@ public class ArendajaKaart extends Kaart{
 
     private String linkedIn;
     private String programmeerimiskeeled;
-    private boolean tudeng;
+    private String tudeng;
 
     public ArendajaKaart(String nimi, String email, String telefoniNumber, String linkedIn, String programmeerimiskeeled, boolean tudeng) {
         super(nimi, email, telefoniNumber);
         this.linkedIn = linkedIn;
         this.programmeerimiskeeled = programmeerimiskeeled;
-        this.tudeng = tudeng;
+        if (tudeng){
+            this.tudeng = "on tudeng";
+        } else {
+            this.tudeng = " ei ole tudeng";
+        }
     }
 
     public String getLinkedIn() {
@@ -29,11 +33,11 @@ public class ArendajaKaart extends Kaart{
         this.programmeerimiskeeled = programmeerimiskeeled;
     }
 
-    public boolean kasTudeng() {
+    public String kasTudeng() {
         return tudeng;
     }
 
-    public void setTudeng(boolean tudeng) {
+    public void setTudeng(String tudeng) {
         this.tudeng = tudeng;
     }
 }
