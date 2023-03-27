@@ -53,4 +53,14 @@ public class Suunamudijakaart extends Kaart {
     public void setTwitter(String twitter) {
         this.twitter = twitter;
     }
+
+    @Override
+    public String toString() {
+        return "Suunamudijakaart" +
+                "instagram: '" + instagram + '\'' + '\n' +
+                ", facebook: '" + facebook + '\'' + '\n' +
+                ", youtube: '" + youtube + '\'' + '\n' +
+                ", tiktok: '" + tiktok + '\'' + '\n' +
+                ", twitter: '" + twitter + '\'';
+    }
 }
