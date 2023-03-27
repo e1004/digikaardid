@@ -18,8 +18,9 @@ public class DialoogiHaldur {
             String jahEi = in.nextLine();
 
             if (jahEi.equals("jah")) {
-                loeAndmedFailist(failinimi);
-                // kutsu välja jooonistaja
+                Kaart kaart = loeAndmedFailist(failinimi);
+                Joonistaja joonistaja = new Joonistaja(kaart);
+                joonistaja.joonista(20);
             }
         }
     }
@@ -87,28 +88,28 @@ public class DialoogiHaldur {
         }
     }
 
-    public static void loeAndmedFailist(String failinimi) {
+    public static Kaart loeAndmedFailist(String failinimi) {
         try {
             File file = new File(failinimi);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNext()) {
                 String[] rida = scanner.nextLine().split(";");
                 if (rida.length == 4) {
-                    Personaalkaart personaalkaart = new Personaalkaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip());
+                    return new Personaalkaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip());
                 } else if (rida.length == 5) {
-                    Tudengikaart tudengikaart = new Tudengikaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), true);
+                    return new Tudengikaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), true);
                 } else if (rida.length == 6) {
-                    ArendajaKaart arendaja = new ArendajaKaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), true);
+                    return new ArendajaKaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), true);
                 } else if (rida.length == 7) {
-                    Töökaart töökaart = new Töökaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), rida[5].strip(), rida[6].strip());
+                    return new Töökaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), rida[5].strip(), rida[6].strip());
                 } else if (rida.length == 8) {
-                    Suunamudijakaart suunamudijakaart = new Suunamudijakaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), rida[5].strip(), rida[6].strip(), rida[7].strip());
+                    return new Suunamudijakaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), rida[5].strip(), rida[6].strip(), rida[7].strip());
                 }
             }
             scanner.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        return null;
     }
-
 }
