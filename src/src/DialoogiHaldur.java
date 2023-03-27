@@ -38,21 +38,30 @@ public class DialoogiHaldur {
         System.out.println("Töökaart, Personaalkaart, Arendajakaart, Tudengikaart, Suunamudijakaart");
         String vastus = in.nextLine();
         if (vastus.equals("Töökaart")) {
-            //
+            System.out.println("Nõutud andmed sisesta semikooloniga (info puudumisel, sisesta \"-\"):");
+            System.out.println("Nimi, email, telefoninumber, töökoht, aadress, koduleht, WhatsApp");
+            String andmed = in.nextLine();
+            sisestaAndmedFaili(andmed);
         } else if (vastus.equals("Personaalkaart")) {
-            //
+            System.out.println("Nõutud andmed sisesta semikooloniga (info puudumisel, sisesta \"-\"):");
+            System.out.println("Nimi, email, telefoninumber, kirjeldus endast");
+            String andmed = in.nextLine();
+            sisestaAndmedFaili(andmed);
         } else if (vastus.equals("Arendajakaart")) {
-            System.out.println("Nõutud andmed sisesta semikooloniga:");
+            System.out.println("Nõutud andmed sisesta semikooloniga (info puudumisel, sisesta \"-\"):");
             System.out.println("Nimi, email, telefoninumber, linkedIn, programmmeerimiskeeled, Kas tudeng?");
             String andmed = in.nextLine();
             sisestaAndmedFaili(andmed);
         } else if (vastus.equals("Tudengikaart")) {
-            System.out.println("Nõutud andmed sisesta semikooloniga:");
+            System.out.println("Nõutud andmed sisesta semikooloniga (info puudumisel, sisesta \"-\"):");
             System.out.println("Nimi, email, telefoninumber, ülikool, Kas isic kaart olemas?");
             String andmed = in.nextLine();
             sisestaAndmedFaili(andmed);
         } else if (vastus.equals("Suunamudijakaart")) {
-            //
+            System.out.println("Nõutud andmed sisesta semikooloniga (info puudumisel, sisesta \"-\"):");
+            System.out.println("Nimi, email, telefoninumber, Instagram, Facebook, YouTube, TikTok, Twitter");
+            String andmed = in.nextLine();
+            sisestaAndmedFaili(andmed);
         }
     }
 
@@ -77,15 +86,15 @@ public class DialoogiHaldur {
             while (scanner.hasNext()) {
                 String[] rida = scanner.nextLine().split(";");
                 if (rida.length == 4) {
-                    // personaalkaart
+                    Personaalkaart personaalkaart = new Personaalkaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip());
                 } else if (rida.length == 5) {
                     Tudengikaart tudengikaart = new Tudengikaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), true);
                 } else if (rida.length == 6) {
                     ArendajaKaart arendaja = new ArendajaKaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), true);
                 } else if (rida.length == 7) {
-                    // töökaart
+                    Töökaart töökaart = new Töökaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), rida[5].strip(), rida[6].strip());
                 } else if (rida.length == 8) {
-                    // suunamudijakaart
+                    Suunamudijakaart suunamudijakaart = new Suunamudijakaart(rida[0], rida[1].strip(), rida[2].strip(), rida[3].strip(), rida[4].strip(), rida[5].strip(), rida[6].strip(), rida[7].strip());
                 }
             }
             scanner.close();
