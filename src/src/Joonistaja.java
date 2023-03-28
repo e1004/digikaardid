@@ -3,7 +3,6 @@ import java.util.Random;
 public class Joonistaja {
 
     private Kaart kaart;
-    private int külg;
 
 
     public Joonistaja(Kaart kaart) {

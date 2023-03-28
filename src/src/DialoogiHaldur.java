@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Mari Mets;Mari@gmail.com;563497;-;Liiva 5;-;Mari Mets
 public class DialoogiHaldur {
 
     private static final String failinimi = "visiitkaardiAndmed.csv";
