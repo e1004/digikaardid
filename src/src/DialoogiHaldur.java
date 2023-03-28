@@ -1,5 +1,9 @@
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+
 //Mari Mets;Mari@gmail.com;563497;-;Liiva 5;-;Mari Mets
 public class DialoogiHaldur {
 
@@ -76,20 +80,10 @@ public class DialoogiHaldur {
     public static void sisestaAndmedFaili(String andmed) {
         try {
             File fail = new File(failinimi);
-            if (fail.exists()) {
-                System.out.println("Fail olemas: " + fail.getName());
-                FileWriter kirjuta = new FileWriter(failinimi, true);
-                BufferedWriter bw = new BufferedWriter(kirjuta);
-                bw.newLine();
-                bw.append(andmed);
-                bw.close();
-                kirjuta.close();
-            } else {
-                System.out.println("Fail loodud: " + fail.getName());
-                FileWriter kirjuta = new FileWriter(failinimi);
-                kirjuta.write(andmed);
-                kirjuta.close();
-            }
+            System.out.println("Fail loodud: " + fail.getName());
+            FileWriter kirjuta = new FileWriter(failinimi);
+            kirjuta.write(andmed);
+            kirjuta.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
