@@ -15,28 +15,28 @@ public class Joonistaja {
         return String.valueOf(tähised.charAt(juhuslik.nextInt(tähised.length())));
     }
 
-    public void joonista(int ruuduKülg) {
+    public void joonista(int kaardiKülg) {
         String tähis = genereeriTähis();
         String tähis2 = tähis + " ";
-        System.out.println(tähis2.repeat(ruuduKülg));
+        System.out.println(tähis2.repeat(kaardiKülg));
 
         String rida = kaart.toString();
         String[] osad = rida.trim().split(", ");
 
-        for (int i = 2; i < (ruuduKülg - osad.length) / 3; i++) {
-            System.out.println(tähis + " ".repeat((ruuduKülg * 2) - 3) + tähis);
+        for (int i = 2; i < (kaardiKülg - osad.length) / 4; i++) {
+            System.out.println(tähis + " ".repeat((kaardiKülg * 2) - 3) + tähis);
         }
 
         for (int i = 0; i < osad.length; i++) {
-            int tühikuidEnne = (ruuduKülg * 2 - 3 - osad[i].length()) / 2;
-            System.out.println(tähis + " ".repeat(((ruuduKülg * 2) - 3 - osad[i].length()) / 2) + osad[i] +
-                    " ".repeat(((ruuduKülg * 2) - 3 - osad[i].length()) - tühikuidEnne) + tähis);
+            int tühikuidEnne = (kaardiKülg * 2 - 3 - osad[i].length()) / 2;
+            System.out.println(tähis + " ".repeat(((kaardiKülg * 2) - 3 - osad[i].length()) / 2) + osad[i] +
+                    " ".repeat(((kaardiKülg * 2) - 3 - osad[i].length()) - tühikuidEnne) + tähis);
         }
 
-        for (int i = 2; i < (ruuduKülg - osad.length) / 3; i++) {
-            System.out.println(tähis + " ".repeat((ruuduKülg * 2) - 3) + tähis);
+        for (int i = 2; i < (kaardiKülg - osad.length) / 4; i++) {
+            System.out.println(tähis + " ".repeat((kaardiKülg * 2) - 3) + tähis);
         }
-        System.out.println(tähis2.repeat(ruuduKülg));
+        System.out.println(tähis2.repeat(kaardiKülg));
     }
 
 }

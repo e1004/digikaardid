@@ -30,7 +30,7 @@ public class DialoogiHaldur {
                     if (pikim < osad[i].length())
                         pikim = osad[i].length();
                 }
-                joonistaja.joonista(pikim + 6);
+                joonistaja.joonista(pikim);
             }
         }
     }
