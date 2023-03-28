@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
-
+//Mari Mets;Mari@gmail.com;563497;-;Liiva 5;-;Mari Mets
 public class DialoogiHaldur {
 
     private static final String failinimi = "visiitkaardiAndmed.csv";
@@ -20,7 +20,14 @@ public class DialoogiHaldur {
             if (jahEi.equals("jah")) {
                 Kaart kaart = loeAndmedFailist(failinimi);
                 Joonistaja joonistaja = new Joonistaja(kaart);
-                joonistaja.joonista(20);
+                String rida = kaart.toString();
+                String[] osad = rida.trim().split(", ");
+                int pikim = 0;
+                for (int i = 0; i < osad.length; i++) {
+                    if (pikim < osad[i].length())
+                        pikim = osad[i].length();
+                }
+                joonistaja.joonista(pikim + 6);
             }
         }
     }

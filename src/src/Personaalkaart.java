@@ -13,4 +13,10 @@ public class Personaalkaart extends Kaart{
     public void setKirjeldus(String kirjeldus) {
         this.kirjeldus = kirjeldus;
     }
+
+    @Override
+    public String toString() {
+        return "Personaalkaart" + super.toString() +
+                ", kirjeldus: " + kirjeldus;
+    }
 }

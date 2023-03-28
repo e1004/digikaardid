@@ -43,4 +43,13 @@ public class Töökaart extends Kaart{
     public void setWhatsapp(String whatsapp) {
         this.whatsapp = whatsapp;
     }
+
+    @Override
+    public String toString() {
+        return "Töökaart" + super.toString() +
+                ", töökoht: " + töökoht +
+                ", aadress: " + aadress +
+                ", koduleht: " + koduleht +
+                ", whatsapp: " + whatsapp;
+    }
 }

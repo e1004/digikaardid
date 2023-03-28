@@ -54,7 +54,7 @@ public class Suunamudijakaart extends Kaart {
         this.twitter = twitter;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Suunamudijakaart" +
                 "instagram: '" + instagram + '\'' + '\n' +
@@ -62,5 +62,15 @@ public class Suunamudijakaart extends Kaart {
                 ", youtube: '" + youtube + '\'' + '\n' +
                 ", tiktok: '" + tiktok + '\'' + '\n' +
                 ", twitter: '" + twitter + '\'';
+    }*/
+
+    @Override
+    public String toString() {
+        return "Suunamudijakaart" + super.toString() +
+                ", instagram: " + instagram +
+                ", facebook: " + facebook +
+                ", youtube: " + youtube +
+                ", tiktok: " + tiktok +
+                ", twitter: " + twitter;
     }
 }

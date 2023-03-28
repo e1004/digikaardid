@@ -28,4 +28,11 @@ public class Tudengikaart extends Kaart {
     public void setIsicKaart(String isicKaart) {
         this.isicKaart = isicKaart;
     }
+
+    @Override
+    public String toString() {
+        return "Tudengikaart" + super.toString() +
+                ", ülikool: " + ülikool +
+                ", isicKaart: " + isicKaart;
+    }
 }

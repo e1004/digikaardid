@@ -39,4 +39,11 @@ public class Kaart implements Visiitkaart{
     public void setTelefoniNumber(String uusTelefoniNumber) {
         this.telefoniNumber = uusTelefoniNumber;
     }
+
+    @Override
+    public String toString() {
+        return ", nimi: " + nimi +
+                ", email: " + email +
+                ", telefoniNumber: " + telefoniNumber;
+    }
 }

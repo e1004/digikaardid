@@ -40,4 +40,12 @@ public class ArendajaKaart extends Kaart{
     public void setTudeng(String tudeng) {
         this.tudeng = tudeng;
     }
+
+    @Override
+    public String toString() {
+        return "ArendajaKaart" + super.toString() +
+                ", linkedIn: " + linkedIn +
+                ", programmeerimiskeeled: " + programmeerimiskeeled +
+                ", tudeng: " + tudeng;
+    }
 }

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Joonistaja{
+public class Joonistaja {
 
     private Kaart kaart;
     private int külg;
@@ -10,7 +10,7 @@ public class Joonistaja{
         this.kaart = kaart;
     }
 
-    private String genereeriTähis(){
+    private String genereeriTähis() {
         Random juhuslik = new Random();
         String tähised = "*#-@!";
         return String.valueOf(tähised.charAt(juhuslik.nextInt(tähised.length())));
@@ -18,17 +18,26 @@ public class Joonistaja{
 
     public void joonista(int ruuduKülg) {
         String tähis = genereeriTähis();
-        System.out.println(tähis.repeat(ruuduKülg));
+        String tähis2 = tähis + " ";
+        System.out.println(tähis2.repeat(ruuduKülg));
 
-        for (int i = 2; i < ruuduKülg; i++) {
+        String rida = kaart.toString();
+        String[] osad = rida.trim().split(", ");
+
+        for (int i = 2; i < (ruuduKülg - osad.length) / 3; i++) {
             System.out.println(tähis + " ".repeat((ruuduKülg * 2) - 3) + tähis);
         }
 
-        System.out.println(kaart.toString());
+        for (int i = 0; i < osad.length; i++) {
+            int tühikuidEnne = (ruuduKülg * 2 - 3 - osad[i].length()) / 2;
+            System.out.println(tähis + " ".repeat(((ruuduKülg * 2) - 3 - osad[i].length()) / 2) + osad[i] +
+                    " ".repeat(((ruuduKülg * 2) - 3 - osad[i].length()) - tühikuidEnne) + tähis);
+        }
 
-        System.out.println(tähis.repeat(ruuduKülg));
+        for (int i = 2; i < (ruuduKülg - osad.length) / 3; i++) {
+            System.out.println(tähis + " ".repeat((ruuduKülg * 2) - 3) + tähis);
+        }
+        System.out.println(tähis2.repeat(ruuduKülg));
     }
-
-
 
 }
