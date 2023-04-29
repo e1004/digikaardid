@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 public class Kaart implements Visiitkaart{
 
     private String nimi;

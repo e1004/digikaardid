@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 import java.util.Random;
 
 public class Joonistaja {

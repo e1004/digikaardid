@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/digikaardid.iml" filepath="$PROJECT_DIR$/.idea/digikaardid.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/src.iml" filepath="$PROJECT_DIR$/src/src.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/digikaardid.main.iml" filepath="$PROJECT_DIR$/.idea/modules/digikaardid.main.iml" />
     </modules>
   </component>
 </project>

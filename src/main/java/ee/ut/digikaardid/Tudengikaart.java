@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 public class Tudengikaart extends Kaart {
     private String ülikool;
     private String isicKaart;
@@ -31,7 +33,7 @@ public class Tudengikaart extends Kaart {
 
     @Override
     public String toString() {
-        return "Tudengikaart" + super.toString() +
+        return "ee.ut.digikaardid.Tudengikaart" + super.toString() +
                 ", ülikool: " + ülikool +
                 ", isicKaart: " + isicKaart;
     }

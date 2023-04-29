@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 import java.util.ArrayList;
 
 public class ArendajaKaart extends Kaart{
@@ -43,7 +45,7 @@ public class ArendajaKaart extends Kaart{
 
     @Override
     public String toString() {
-        return "ArendajaKaart" + super.toString() +
+        return "ee.ut.digikaardid.ArendajaKaart" + super.toString() +
                 ", linkedIn: " + linkedIn +
                 ", programmeerimiskeeled: " + programmeerimiskeeled +
                 ", tudeng: " + tudeng;

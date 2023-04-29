@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 public class Personaalkaart extends Kaart{
     private String kirjeldus;
 
@@ -16,7 +18,7 @@ public class Personaalkaart extends Kaart{
 
     @Override
     public String toString() {
-        return "Personaalkaart" + super.toString() +
+        return "ee.ut.digikaardid.Personaalkaart" + super.toString() +
                 ", kirjeldus: " + kirjeldus;
     }
 }

@@ -26,3 +26,6 @@ visiitkaardiAndmed.csv
 
 .gradle/
 build/
+
+.idea/uiDesigner.xml
+.idea/misc.xml

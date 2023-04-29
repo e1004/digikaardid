@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 public interface Visiitkaart {
     String getNimi();
 

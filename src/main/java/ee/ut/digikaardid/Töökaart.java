@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 public class Töökaart extends Kaart{
     private String töökoht;
     private String aadress;
@@ -46,7 +48,7 @@ public class Töökaart extends Kaart{
 
     @Override
     public String toString() {
-        return "Töökaart" + super.toString() +
+        return "ee.ut.digikaardid.Töökaart" + super.toString() +
                 ", töökoht: " + töökoht +
                 ", aadress: " + aadress +
                 ", koduleht: " + koduleht +

@@ -1,3 +1,5 @@
+package ee.ut.digikaardid;
+
 public class Suunamudijakaart extends Kaart {
     private String instagram;
     private String facebook;
@@ -56,7 +58,7 @@ public class Suunamudijakaart extends Kaart {
 
     @Override
     public String toString() {
-        return "Suunamudijakaart" + super.toString() +
+        return "ee.ut.digikaardid.Suunamudijakaart" + super.toString() +
                 ", instagram: " + instagram +
                 ", facebook: " + facebook +
                 ", youtube: " + youtube +
