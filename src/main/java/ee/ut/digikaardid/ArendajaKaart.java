@@ -1,9 +1,8 @@
 package ee.ut.digikaardid;
 
-import java.util.ArrayList;
-
 public class ArendajaKaart extends Kaart{
 
+    public static final String NIMI = "Arendajakaart";
     private String linkedIn;
     private String programmeerimiskeeled;
     private String tudeng;

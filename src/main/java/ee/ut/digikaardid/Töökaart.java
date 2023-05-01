@@ -1,6 +1,7 @@
 package ee.ut.digikaardid;
 
 public class Töökaart extends Kaart{
+    public static final String NIMI = "Töökaart";
     private String töökoht;
     private String aadress;
     private String koduleht;

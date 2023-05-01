@@ -1,6 +1,8 @@
 package ee.ut.digikaardid;
 
 public class Personaalkaart extends Kaart{
+
+    public static final String NIMI = "Personaalkaart";
     private String kirjeldus;
 
     public Personaalkaart(String nimi, String email, String telefoniNumber, String kirjeldus) {

@@ -1,18 +1,15 @@
 package ee.ut.digikaardid;
 
 public class Tudengikaart extends Kaart {
+    public static final String NIMI = "Tudengikaart";
     private String ülikool;
     private String isicKaart;
 
 
-    public Tudengikaart(String nimi, String email, String telefoniNumber, String ülikool, boolean isicKaart) {
+    public Tudengikaart(String nimi, String email, String telefoniNumber, String ülikool, String isicKaart) {
         super(nimi, email, telefoniNumber);
         this.ülikool = ülikool;
-        if (isicKaart){
-            this.isicKaart = "Isic kaart olemas";
-        } else {
-            this.isicKaart = "Isic kaarti pole";
-        }
+        this.isicKaart = isicKaart;
     }
 
     public String getÜlikool() {

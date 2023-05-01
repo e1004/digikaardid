@@ -1,6 +1,8 @@
 package ee.ut.digikaardid;
 
 public class Suunamudijakaart extends Kaart {
+
+    public static final String NIMI = "Suunamudijakaart";
     private String instagram;
     private String facebook;
     private String youtube;
