@@ -92,6 +92,57 @@ public class Main extends Application {
         TextField emailiSisend = new TextField();
         TextField telefoniSisend = new TextField();
 
+        // Personaalkaardi väljad
+        Label kirjelduseSilt = new Label("Kirjeldus: ");
+        TextField kirjelduseSisend = new TextField();
+
+        Map<Label, TextField> personaalsekaardiSiltSisend = Map.of(
+                nimeSilt, nimeSisend,
+                emailiSilt, emailiSisend,
+                telefoniSilt, telefoniSisend,
+                kirjelduseSilt, kirjelduseSisend
+        );
+
+        // Suunamudijakaardi väljad
+        Label instagramiSilt = new Label("Instagram: ");
+        Label facebookiSilt = new Label("Facebook: ");
+        Label youtubeiSilt = new Label("Youtube: ");
+        Label tiktokiSilt = new Label("Tiktok: ");
+        Label twitteriSilt = new Label("Twitter: ");
+        TextField instagramiSisend = new TextField();
+        TextField facebookiSisend = new TextField();
+        TextField youtubeiSisend = new TextField();
+        TextField tiktokiSisend = new TextField();
+        TextField twitteriSisend = new TextField();
+
+        Map<Label, TextField> suunamudijakaardiSiltSisend = Map.of(
+                nimeSilt, nimeSisend,
+                emailiSilt, emailiSisend,
+                telefoniSilt, telefoniSisend,
+                instagramiSilt, instagramiSisend,
+                facebookiSilt, facebookiSisend,
+                youtubeiSilt, youtubeiSisend,
+                tiktokiSilt, tiktokiSisend,
+                twitteriSilt, twitteriSisend
+        );
+
+        // Arendajakaardi väljad
+        Label linkedInSilt = new Label("LinkedIn: ");
+        Label programmeerimiskeelteSilt = new Label("Programmeerimiskeeled: ");
+        Label tudengiSilt = new Label("Tudeng: ");
+        TextField linkedInSisend = new TextField();
+        TextField programmeerimiskeelteSisend = new TextField();
+        TextField tudengiSisend = new TextField();
+
+        Map<Label, TextField> arendajakaardiSiltSisend = Map.of(
+                nimeSilt, nimeSisend,
+                emailiSilt, emailiSisend,
+                telefoniSilt, telefoniSisend,
+                linkedInSilt, linkedInSisend,
+                programmeerimiskeelteSilt, programmeerimiskeelteSisend,
+                tudengiSilt, tudengiSisend
+        );
+
         // Töökaardi väljad
         Label töökohaSilt = new Label("Töökoht: ");
         Label aadressiSilt = new Label("Aadress: ");
@@ -131,13 +182,19 @@ public class Main extends Application {
             switch (nupuvalik.getText()) {
                 case Töökaart.NIMI -> lisaValikuKuulaja(nupuvalik, sisenditeRuudustik, töökaardiSiltSisend);
                 case Tudengikaart.NIMI -> lisaValikuKuulaja(nupuvalik, sisenditeRuudustik, tudengikaardiSiltSisend);
+                case Suunamudijakaart.NIMI -> lisaValikuKuulaja(nupuvalik, sisenditeRuudustik, suunamudijakaardiSiltSisend);
+                case Personaalkaart.NIMI -> lisaValikuKuulaja(nupuvalik, sisenditeRuudustik, personaalsekaardiSiltSisend);
+                case ArendajaKaart.NIMI -> lisaValikuKuulaja(nupuvalik, sisenditeRuudustik, arendajakaardiSiltSisend);
             }
         }
 
 
         return Map.of(
                 Töökaart.NIMI, Map.of(Silt.NIMI, nimeSisend, Silt.EMAIL, emailiSisend, Silt.TELEFON, telefoniSisend, Silt.TÖÖKOHT, töökohaSisend, Silt.AADRESS, aadressiSisend, Silt.KODULEHT, koduleheSisend, Silt.WHATSAPP, whatsappiSisend),
-                Tudengikaart.NIMI, Map.of(Silt.NIMI, nimeSisend, Silt.EMAIL, emailiSisend, Silt.TELEFON, telefoniSisend));
+                Tudengikaart.NIMI, Map.of(Silt.NIMI, nimeSisend, Silt.EMAIL, emailiSisend, Silt.TELEFON, telefoniSisend),
+                Suunamudijakaart.NIMI, Map.of(Silt.NIMI, nimeSisend, Silt.EMAIL, emailiSisend, Silt.TELEFON, telefoniSisend, Silt.INSTAGRAM, instagramiSisend, Silt.FACEBOOK, facebookiSisend, Silt.YOUTUBE, youtubeiSisend, Silt.TIKTOK, tiktokiSisend, Silt.TWITTER, twitteriSisend),
+                Personaalkaart.NIMI, Map.of(Silt.NIMI, nimeSisend, Silt.EMAIL, emailiSisend, Silt.TELEFON, telefoniSisend, Silt.KIRJELDUS, kirjelduseSisend),
+                ArendajaKaart.NIMI, Map.of(Silt.NIMI, nimeSisend, Silt.EMAIL, emailiSisend, Silt.TELEFON, telefoniSisend, Silt.LINKEDIN, linkedInSisend, Silt.PROGRAMMEERIMISKEELED, programmeerimiskeelteSisend, Silt.TUDENG, tudengiSisend));
 
     }
 
