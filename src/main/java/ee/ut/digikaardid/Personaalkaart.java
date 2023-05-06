@@ -1,6 +1,11 @@
 package ee.ut.digikaardid;
 
-public class Personaalkaart extends Kaart{
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.util.Map;
+
+public class Personaalkaart extends Kaart {
 
     public static final String NIMI = "Personaalkaart";
     private String kirjeldus;
@@ -8,6 +13,10 @@ public class Personaalkaart extends Kaart{
     public Personaalkaart(String nimi, String email, String telefoniNumber, String kirjeldus) {
         super(nimi, email, telefoniNumber);
         this.kirjeldus = kirjeldus;
+    }
+
+    public static Map<String, TextField> getSisestusväljad() {
+        return Map.of(Silt.KIRJELDUS, new TextField());
     }
 
     public String getKirjeldus() {

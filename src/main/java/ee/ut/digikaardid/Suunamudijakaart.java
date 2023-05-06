@@ -1,5 +1,10 @@
 package ee.ut.digikaardid;
 
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.util.Map;
+
 public class Suunamudijakaart extends Kaart {
 
     public static final String NIMI = "Suunamudijakaart";
@@ -16,6 +21,22 @@ public class Suunamudijakaart extends Kaart {
         this.youtube = youtube;
         this.tiktok = tiktok;
         this.twitter = twitter;
+    }
+
+    public static Map<String, TextField> getSisestusväljad() {
+        TextField instagramiSisend = new TextField();
+        TextField facebookiSisend = new TextField();
+        TextField youtubeiSisend = new TextField();
+        TextField tiktokiSisend = new TextField();
+        TextField twitteriSisend = new TextField();
+
+        return Map.of(
+                Silt.INSTAGRAM, instagramiSisend,
+                Silt.FACEBOOK, facebookiSisend,
+                Silt.YOUTUBE, youtubeiSisend,
+                Silt.TIKTOK, tiktokiSisend,
+                Silt.TWITTER, twitteriSisend
+        );
     }
 
     public String getInstagram() {

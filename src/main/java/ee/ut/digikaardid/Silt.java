@@ -17,4 +17,6 @@ public final class Silt {
     public static final String LINKEDIN = "LinkedIn";
     public static final String PROGRAMMEERIMISKEELED = "Programmeerimiskeeled";
     public static final String TUDENG = "Tudeng";
+    public static final String ÜLIKOOL = "Ülikool";
+    public static final String ISIC = "ISIC-kaart";
 }

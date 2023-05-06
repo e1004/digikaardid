@@ -1,11 +1,18 @@
 package ee.ut.digikaardid;
 
-public class Töökaart extends Kaart{
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.io.Serializable;
+import java.util.Map;
+
+public class Töökaart extends Kaart implements Serializable {
     public static final String NIMI = "Töökaart";
     private String töökoht;
     private String aadress;
     private String koduleht;
     private String whatsapp;
+
 
     public Töökaart(String nimi, String email, String telefoniNumber, String töökoht, String aadress, String koduleht, String whatsapp) {
         super(nimi, email, telefoniNumber);
@@ -47,9 +54,23 @@ public class Töökaart extends Kaart{
         this.whatsapp = whatsapp;
     }
 
+    public static Map<String, TextField> getSisestusväljad() {
+        TextField töökohaSisend = new TextField();
+        TextField aadressiSisend = new TextField();
+        TextField koduleheSisend = new TextField();
+        TextField whatsappiSisend = new TextField();
+
+        return Map.of(
+                Silt.TÖÖKOHT, töökohaSisend,
+                Silt.AADRESS, aadressiSisend,
+                Silt.KODULEHT, koduleheSisend,
+                Silt.WHATSAPP, whatsappiSisend
+        );
+    }
+
     @Override
     public String toString() {
-        return "ee.ut.digikaardid.Töökaart" + super.toString() +
+        return "Töökaart" + super.toString() +
                 ", töökoht: " + töökoht +
                 ", aadress: " + aadress +
                 ", koduleht: " + koduleht +

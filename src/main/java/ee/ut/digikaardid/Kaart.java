@@ -1,6 +1,12 @@
 package ee.ut.digikaardid;
 
-public class Kaart implements Visiitkaart{
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.io.Serializable;
+import java.util.Map;
+
+public class Kaart implements Visiitkaart, Serializable {
 
     private String nimi;
     private String email;
@@ -40,6 +46,18 @@ public class Kaart implements Visiitkaart{
     @Override
     public void setTelefoniNumber(String uusTelefoniNumber) {
         this.telefoniNumber = uusTelefoniNumber;
+    }
+
+    public static Map<String, TextField> getSisestusväljad() {
+        TextField nimeSisend = new TextField();
+        TextField emailiSisend = new TextField();
+        TextField telefoniSisend = new TextField();
+
+        return Map.of(
+                Silt.NIMI, nimeSisend,
+                Silt.EMAIL, emailiSisend,
+                Silt.TELEFON, telefoniSisend
+        );
     }
 
     @Override

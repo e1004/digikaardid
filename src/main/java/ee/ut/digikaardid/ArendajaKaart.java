@@ -1,5 +1,10 @@
 package ee.ut.digikaardid;
 
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.util.Map;
+
 public class ArendajaKaart extends Kaart{
 
     public static final String NIMI = "Arendajakaart";
@@ -40,6 +45,18 @@ public class ArendajaKaart extends Kaart{
 
     public void setTudeng(String tudeng) {
         this.tudeng = tudeng;
+    }
+
+    public static Map<String, TextField> getSisestusväljad() {
+        TextField linkedInSisend = new TextField();
+        TextField programmeerimiskeelteSisend = new TextField();
+        TextField tudengiSisend = new TextField();
+
+        return Map.of(
+                Silt.LINKEDIN, linkedInSisend,
+                Silt.PROGRAMMEERIMISKEELED, programmeerimiskeelteSisend,
+                Silt.TUDENG, tudengiSisend
+        );
     }
 
     @Override
