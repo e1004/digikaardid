@@ -1,6 +1,5 @@
 package ee.ut.digikaardid;
 
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.Map;
@@ -15,6 +14,16 @@ public class Tudengikaart extends Kaart {
         super(nimi, email, telefoniNumber);
         this.ülikool = ülikool;
         this.isicKaart = isicKaart;
+    }
+
+    public static Map<String, TextField> getSisestusväljad() {
+        TextField ülikooliSisend = new TextField();
+        TextField isicKaardiSisend = new TextField();
+
+        return Map.of(
+                Silt.ÜLIKOOL, ülikooliSisend,
+                Silt.ISIC, isicKaardiSisend
+        );
     }
 
     public String getÜlikool() {
@@ -33,20 +42,10 @@ public class Tudengikaart extends Kaart {
         this.isicKaart = isicKaart;
     }
 
-    public static Map<String, TextField> getSisestusväljad() {
-        TextField ülikooliSisend = new TextField();
-        TextField isicKaardiSisend = new TextField();
-
-        return Map.of(
-                Silt.ÜLIKOOL, ülikooliSisend,
-                Silt.ISIC, isicKaardiSisend
-        );
-    }
-
     @Override
     public String toString() {
-        return "ee.ut.digikaardid.Tudengikaart" + super.toString() +
+        return "Tudengikaart" + super.toString() +
                 ", ülikool: " + ülikool +
-                ", isicKaart: " + isicKaart;
+                ", ISIC-kaart: " + isicKaart;
     }
 }

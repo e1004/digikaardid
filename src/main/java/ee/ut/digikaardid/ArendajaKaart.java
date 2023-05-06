@@ -1,26 +1,33 @@
 package ee.ut.digikaardid;
 
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.Map;
 
-public class ArendajaKaart extends Kaart{
+public class ArendajaKaart extends Kaart {
 
     public static final String NIMI = "Arendajakaart";
     private String linkedIn;
     private String programmeerimiskeeled;
     private String tudeng;
 
-    public ArendajaKaart(String nimi, String email, String telefoniNumber, String linkedIn, String programmeerimiskeeled, boolean tudeng) {
+    public ArendajaKaart(String nimi, String email, String telefoniNumber, String linkedIn, String programmeerimiskeeled, String tudeng) {
         super(nimi, email, telefoniNumber);
         this.linkedIn = linkedIn;
         this.programmeerimiskeeled = programmeerimiskeeled;
-        if (tudeng){
-            this.tudeng = "on tudeng";
-        } else {
-            this.tudeng = " ei ole tudeng";
-        }
+        this.tudeng = tudeng;
+    }
+
+    public static Map<String, TextField> getSisestusväljad() {
+        TextField linkedInSisend = new TextField();
+        TextField programmeerimiskeelteSisend = new TextField();
+        TextField tudengiSisend = new TextField();
+
+        return Map.of(
+                Silt.LINKEDIN, linkedInSisend,
+                Silt.PROGRAMMEERIMISKEELED, programmeerimiskeelteSisend,
+                Silt.TUDENG, tudengiSisend
+        );
     }
 
     public String getLinkedIn() {
@@ -45,18 +52,6 @@ public class ArendajaKaart extends Kaart{
 
     public void setTudeng(String tudeng) {
         this.tudeng = tudeng;
-    }
-
-    public static Map<String, TextField> getSisestusväljad() {
-        TextField linkedInSisend = new TextField();
-        TextField programmeerimiskeelteSisend = new TextField();
-        TextField tudengiSisend = new TextField();
-
-        return Map.of(
-                Silt.LINKEDIN, linkedInSisend,
-                Silt.PROGRAMMEERIMISKEELED, programmeerimiskeelteSisend,
-                Silt.TUDENG, tudengiSisend
-        );
     }
 
     @Override
