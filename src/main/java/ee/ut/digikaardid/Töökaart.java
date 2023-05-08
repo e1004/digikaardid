@@ -74,6 +74,6 @@ public class Töökaart extends Kaart implements Serializable {
                 ", töökoht: " + töökoht +
                 ", aadress: " + aadress +
                 ", koduleht: " + koduleht +
-                ", whatsapp: " + whatsapp;
+                ", WhatsApp: " + whatsapp;
     }
 }

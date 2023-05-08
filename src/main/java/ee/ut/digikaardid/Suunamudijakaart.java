@@ -81,11 +81,11 @@ public class Suunamudijakaart extends Kaart {
 
     @Override
     public String toString() {
-        return "ee.ut.digikaardid.Suunamudijakaart" + super.toString() +
-                ", instagram: " + instagram +
-                ", facebook: " + facebook +
-                ", youtube: " + youtube +
-                ", tiktok: " + tiktok +
-                ", twitter: " + twitter;
+        return "Suunamudijakaart" + super.toString() +
+                ", Instagram: " + instagram +
+                ", Facebook: " + facebook +
+                ", Youtube: " + youtube +
+                ", Tiktok: " + tiktok +
+                ", Twitter: " + twitter;
     }
 }

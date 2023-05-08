@@ -86,75 +86,77 @@ public class Main extends Application {
 
         loomisnupp.setOnAction(event -> {
             RadioButton valitudValik = (RadioButton) valijad.getSelectedToggle();
-            switch (valitudValik.getText()) {
-                case Töökaart.NIMI -> {
-                    Map<String, TextField> sisendid = kaardiSildiSisendid.get(Töökaart.NIMI);
-                    String nimi = sisendid.get(Silt.NIMI).getText();
-                    String email = sisendid.get(Silt.EMAIL).getText();
-                    String telefon = sisendid.get(Silt.TELEFON).getText();
-                    String töökoht = sisendid.get(Silt.TÖÖKOHT).getText();
-                    String aadress = sisendid.get(Silt.AADRESS).getText();
-                    String whatsapp = sisendid.get(Silt.WHATSAPP).getText();
-                    String koduleht = sisendid.get(Silt.KODULEHT).getText();
+            if (!(valitudValik == null)) {
+                switch (valitudValik.getText()) {
+                    case Töökaart.NIMI -> {
+                        Map<String, TextField> sisendid = kaardiSildiSisendid.get(Töökaart.NIMI);
+                        String nimi = sisendid.get(Silt.NIMI).getText();
+                        String email = sisendid.get(Silt.EMAIL).getText();
+                        String telefon = sisendid.get(Silt.TELEFON).getText();
+                        String töökoht = sisendid.get(Silt.TÖÖKOHT).getText();
+                        String aadress = sisendid.get(Silt.AADRESS).getText();
+                        String whatsapp = sisendid.get(Silt.WHATSAPP).getText();
+                        String koduleht = sisendid.get(Silt.KODULEHT).getText();
 
-                    if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
-                    Töökaart töökaart = new Töökaart(nimi, email, telefon, töökoht, aadress, koduleht, whatsapp);
-                    kirjutaFaili("töökaart.txt", töökaart);
+                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        Töökaart töökaart = new Töökaart(nimi, email, telefon, töökoht, aadress, koduleht, whatsapp);
+                        kirjutaFaili("töökaart.txt", töökaart);
 
+                    }
+                    case Tudengikaart.NIMI -> {
+                        Map<String, TextField> sisendid = kaardiSildiSisendid.get(Tudengikaart.NIMI);
+                        String nimi = sisendid.get(Silt.NIMI).getText();
+                        String email = sisendid.get(Silt.EMAIL).getText();
+                        String telefon = sisendid.get(Silt.TELEFON).getText();
+                        String ülikool = sisendid.get(Silt.ÜLIKOOL).getText();
+                        String isickaart = sisendid.get(Silt.ISIC).getText();
+
+                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        Tudengikaart tudengikaart = new Tudengikaart(nimi, email, telefon, ülikool, isickaart);
+                        kirjutaFaili("tudengikaart.txt", tudengikaart);
+                    }
+                    case ArendajaKaart.NIMI -> {
+                        Map<String, TextField> sisendid = kaardiSildiSisendid.get(ArendajaKaart.NIMI);
+                        String nimi = sisendid.get(Silt.NIMI).getText();
+                        String email = sisendid.get(Silt.EMAIL).getText();
+                        String telefon = sisendid.get(Silt.TELEFON).getText();
+                        String linkedIn = sisendid.get(Silt.LINKEDIN).getText();
+                        String programmeerimiskeeled = sisendid.get(Silt.PROGRAMMEERIMISKEELED).getText();
+                        String tudeng = sisendid.get(Silt.TUDENG).getText();
+
+                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        ArendajaKaart arendajaKaart = new ArendajaKaart(nimi, email, telefon, linkedIn, programmeerimiskeeled, tudeng);
+                        kirjutaFaili("arendajakaart.txt", arendajaKaart);
+                    }
+                    case Suunamudijakaart.NIMI -> {
+                        Map<String, TextField> sisendid = kaardiSildiSisendid.get(Suunamudijakaart.NIMI);
+                        String nimi = sisendid.get(Silt.NIMI).getText();
+                        String email = sisendid.get(Silt.EMAIL).getText();
+                        String telefon = sisendid.get(Silt.TELEFON).getText();
+                        String instagram = sisendid.get(Silt.INSTAGRAM).getText();
+                        String facebook = sisendid.get(Silt.FACEBOOK).getText();
+                        String youtube = sisendid.get(Silt.YOUTUBE).getText();
+                        String tiktok = sisendid.get(Silt.TIKTOK).getText();
+                        String twitter = sisendid.get(Silt.TWITTER).getText();
+
+                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        Suunamudijakaart suunamudijakaart = new Suunamudijakaart(nimi, email, telefon, instagram, facebook, youtube, tiktok, twitter);
+                        kirjutaFaili("suunamudijakaart.txt", suunamudijakaart);
+                    }
+                    case Personaalkaart.NIMI -> {
+                        Map<String, TextField> sisendid = kaardiSildiSisendid.get(Personaalkaart.NIMI);
+                        String nimi = sisendid.get(Silt.NIMI).getText();
+                        String email = sisendid.get(Silt.EMAIL).getText();
+                        String telefon = sisendid.get(Silt.TELEFON).getText();
+                        String kirjedus = sisendid.get(Silt.KIRJELDUS).getText();
+
+                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        Personaalkaart personaalkaart = new Personaalkaart(nimi, email, telefon, kirjedus);
+                        kirjutaFaili("personaalkaart.txt", personaalkaart);
+                    }
                 }
-                case Tudengikaart.NIMI -> {
-                    Map<String, TextField> sisendid = kaardiSildiSisendid.get(Tudengikaart.NIMI);
-                    String nimi = sisendid.get(Silt.NIMI).getText();
-                    String email = sisendid.get(Silt.EMAIL).getText();
-                    String telefon = sisendid.get(Silt.TELEFON).getText();
-                    String ülikool = sisendid.get(Silt.ÜLIKOOL).getText();
-                    String isickaart = sisendid.get(Silt.ISIC).getText();
-
-                    if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
-                    Tudengikaart tudengikaart = new Tudengikaart(nimi, email, telefon, ülikool, isickaart);
-                    kirjutaFaili("tudengikaart.txt", tudengikaart);
-                }
-                case ArendajaKaart.NIMI -> {
-                    Map<String, TextField> sisendid = kaardiSildiSisendid.get(ArendajaKaart.NIMI);
-                    String nimi = sisendid.get(Silt.NIMI).getText();
-                    String email = sisendid.get(Silt.EMAIL).getText();
-                    String telefon = sisendid.get(Silt.TELEFON).getText();
-                    String linkedIn = sisendid.get(Silt.LINKEDIN).getText();
-                    String programmeerimiskeeled = sisendid.get(Silt.PROGRAMMEERIMISKEELED).getText();
-                    String tudeng = sisendid.get(Silt.TUDENG).getText();
-
-                    if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
-                    ArendajaKaart arendajaKaart = new ArendajaKaart(nimi, email, telefon, linkedIn, programmeerimiskeeled, tudeng);
-                    kirjutaFaili("arendajakaart.txt", arendajaKaart);
-                }
-                case Suunamudijakaart.NIMI -> {
-                    Map<String, TextField> sisendid = kaardiSildiSisendid.get(Suunamudijakaart.NIMI);
-                    String nimi = sisendid.get(Silt.NIMI).getText();
-                    String email = sisendid.get(Silt.EMAIL).getText();
-                    String telefon = sisendid.get(Silt.TELEFON).getText();
-                    String instagram = sisendid.get(Silt.INSTAGRAM).getText();
-                    String facebook = sisendid.get(Silt.FACEBOOK).getText();
-                    String youtube = sisendid.get(Silt.YOUTUBE).getText();
-                    String tiktok = sisendid.get(Silt.TIKTOK).getText();
-                    String twitter = sisendid.get(Silt.TWITTER).getText();
-
-                    if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
-                    Suunamudijakaart suunamudijakaart = new Suunamudijakaart(nimi, email, telefon, instagram, facebook, youtube, tiktok, twitter);
-                    kirjutaFaili("suunamudijakaart.txt", suunamudijakaart);
-                }
-                case Personaalkaart.NIMI -> {
-                    Map<String, TextField> sisendid = kaardiSildiSisendid.get(Personaalkaart.NIMI);
-                    String nimi = sisendid.get(Silt.NIMI).getText();
-                    String email = sisendid.get(Silt.EMAIL).getText();
-                    String telefon = sisendid.get(Silt.TELEFON).getText();
-                    String kirjedus = sisendid.get(Silt.KIRJELDUS).getText();
-
-                    if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
-                    Personaalkaart personaalkaart = new Personaalkaart(nimi, email, telefon, kirjedus);
-                    kirjutaFaili("personaalkaart.txt", personaalkaart);
-                }
-            }
-            näitaTeavitust(Alert.AlertType.CONFIRMATION, ruudustik.getScene().getWindow(), "", "Kaart loodud");
+            } else
+                näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Vali kaarditüüp ja sisesta andmed");
         });
     }
 
@@ -187,32 +189,52 @@ public class Main extends Application {
 
         vaatamisnupp.setOnAction(event -> {
             RadioButton valitudValik = (RadioButton) valijad.getSelectedToggle();
-            switch (valitudValik.getText()) {
-                case Töökaart.NIMI -> {
-                    Töökaart töökaart = (Töökaart) loeKaardiObjekt("töökaart.txt");
-                    näitaKaarti(ruudustik.getScene().getWindow(), töökaart);
+            if (!(valitudValik == null)) {
+                switch (valitudValik.getText()) {
+                    case Töökaart.NIMI -> {
+                        try {
+                            Töökaart töökaart = (Töökaart) loeKaardiObjekt("töökaart.txt");
+                            näitaKaarti(ruudustik.getScene().getWindow(), töökaart);
+                        } catch (RuntimeException e) {
+                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                        }
+                    }
+                    case Tudengikaart.NIMI -> {
+                        try {
+                            Tudengikaart tudengikaart = (Tudengikaart) loeKaardiObjekt("tudengikaart.txt");
+                            näitaKaarti(ruudustik.getScene().getWindow(), tudengikaart);
+                        } catch (RuntimeException e) {
+                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                        }
 
+                    }
+                    case ArendajaKaart.NIMI -> {
+                        try {
+                            ArendajaKaart arendajaKaart = (ArendajaKaart) loeKaardiObjekt("arendajakaart.txt");
+                            näitaKaarti(ruudustik.getScene().getWindow(), arendajaKaart);
+                        } catch (RuntimeException e) {
+                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                        }
+                    }
+                    case Suunamudijakaart.NIMI -> {
+                        try {
+                            Suunamudijakaart suunamudijakaart = (Suunamudijakaart) loeKaardiObjekt("suunamudijakaart.txt");
+                            näitaKaarti(ruudustik.getScene().getWindow(), suunamudijakaart);
+                        } catch (RuntimeException e) {
+                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                        }
+                    }
+                    case Personaalkaart.NIMI -> {
+                        try {
+                            Personaalkaart personaalkaart = (Personaalkaart) loeKaardiObjekt("personaalkaart.txt");
+                            näitaKaarti(ruudustik.getScene().getWindow(), personaalkaart);
+                        } catch (RuntimeException e) {
+                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                        }
+                    }
                 }
-                case Tudengikaart.NIMI -> {
-                    Tudengikaart tudengikaart = (Tudengikaart) loeKaardiObjekt("tudengikaart.txt");
-                    näitaKaarti(ruudustik.getScene().getWindow(), tudengikaart);
-
-                }
-                case ArendajaKaart.NIMI -> {
-                    ArendajaKaart arendajaKaart = (ArendajaKaart) loeKaardiObjekt("arendajakaart.txt");
-                    näitaKaarti(ruudustik.getScene().getWindow(), arendajaKaart);
-
-                }
-                case Suunamudijakaart.NIMI -> {
-                    Suunamudijakaart suunamudijakaart = (Suunamudijakaart) loeKaardiObjekt("suunamudijakaart.txt");
-                    näitaKaarti(ruudustik.getScene().getWindow(), suunamudijakaart);
-
-                }
-                case Personaalkaart.NIMI -> {
-                    Personaalkaart personaalkaart = (Personaalkaart) loeKaardiObjekt("personaalkaart.txt");
-                    näitaKaarti(ruudustik.getScene().getWindow(), personaalkaart);
-                }
-            }
+            } else
+                näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Vali kaarditüüp");
         });
     }
 

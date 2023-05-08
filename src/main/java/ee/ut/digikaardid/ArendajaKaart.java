@@ -56,8 +56,8 @@ public class ArendajaKaart extends Kaart {
 
     @Override
     public String toString() {
-        return "ee.ut.digikaardid.ArendajaKaart" + super.toString() +
-                ", linkedIn: " + linkedIn +
+        return "ArendajaKaart" + super.toString() +
+                ", LinkedIn: " + linkedIn +
                 ", programmeerimiskeeled: " + programmeerimiskeeled +
                 ", tudeng: " + tudeng;
     }

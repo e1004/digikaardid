@@ -29,7 +29,7 @@ public class Personaalkaart extends Kaart {
 
     @Override
     public String toString() {
-        return "ee.ut.digikaardid.Personaalkaart" + super.toString() +
+        return "Personaalkaart" + super.toString() +
                 ", kirjeldus: " + kirjeldus;
     }
 }
