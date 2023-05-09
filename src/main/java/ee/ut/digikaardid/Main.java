@@ -68,7 +68,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage lava) throws IOException {
+    public void start(Stage lava) {
         lava.setTitle("Digitaalsed visiitkaardid");
         GridPane ruudustik = looRuudustik();
         ToggleGroup valijad = lisaKaarditüübiValija(ruudustik);
@@ -98,9 +98,10 @@ public class Main extends Application {
                         String whatsapp = sisendid.get(Silt.WHATSAPP).getText();
                         String koduleht = sisendid.get(Silt.KODULEHT).getText();
 
-                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        if (kasSisendOK(ruudustik, nimi, email, telefon)) return;
                         Töökaart töökaart = new Töökaart(nimi, email, telefon, töökoht, aadress, koduleht, whatsapp);
                         kirjutaFaili("töökaart.txt", töökaart);
+                        näitaTeavitust(ruudustik.getScene().getWindow(), "", "Kaart loodud!");
 
                     }
                     case Tudengikaart.NIMI -> {
@@ -111,9 +112,10 @@ public class Main extends Application {
                         String ülikool = sisendid.get(Silt.ÜLIKOOL).getText();
                         String isickaart = sisendid.get(Silt.ISIC).getText();
 
-                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        if (kasSisendOK(ruudustik, nimi, email, telefon)) return;
                         Tudengikaart tudengikaart = new Tudengikaart(nimi, email, telefon, ülikool, isickaart);
                         kirjutaFaili("tudengikaart.txt", tudengikaart);
+                        näitaTeavitust(ruudustik.getScene().getWindow(), "", "Kaart loodud!");
                     }
                     case ArendajaKaart.NIMI -> {
                         Map<String, TextField> sisendid = kaardiSildiSisendid.get(ArendajaKaart.NIMI);
@@ -124,9 +126,10 @@ public class Main extends Application {
                         String programmeerimiskeeled = sisendid.get(Silt.PROGRAMMEERIMISKEELED).getText();
                         String tudeng = sisendid.get(Silt.TUDENG).getText();
 
-                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        if (kasSisendOK(ruudustik, nimi, email, telefon)) return;
                         ArendajaKaart arendajaKaart = new ArendajaKaart(nimi, email, telefon, linkedIn, programmeerimiskeeled, tudeng);
                         kirjutaFaili("arendajakaart.txt", arendajaKaart);
+                        näitaTeavitust(ruudustik.getScene().getWindow(), "", "Kaart loodud!");
                     }
                     case Suunamudijakaart.NIMI -> {
                         Map<String, TextField> sisendid = kaardiSildiSisendid.get(Suunamudijakaart.NIMI);
@@ -139,9 +142,10 @@ public class Main extends Application {
                         String tiktok = sisendid.get(Silt.TIKTOK).getText();
                         String twitter = sisendid.get(Silt.TWITTER).getText();
 
-                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        if (kasSisendOK(ruudustik, nimi, email, telefon)) return;
                         Suunamudijakaart suunamudijakaart = new Suunamudijakaart(nimi, email, telefon, instagram, facebook, youtube, tiktok, twitter);
                         kirjutaFaili("suunamudijakaart.txt", suunamudijakaart);
+                        näitaTeavitust(ruudustik.getScene().getWindow(), "", "Kaart loodud!");
                     }
                     case Personaalkaart.NIMI -> {
                         Map<String, TextField> sisendid = kaardiSildiSisendid.get(Personaalkaart.NIMI);
@@ -150,23 +154,24 @@ public class Main extends Application {
                         String telefon = sisendid.get(Silt.TELEFON).getText();
                         String kirjedus = sisendid.get(Silt.KIRJELDUS).getText();
 
-                        if (!kasSisendOK(ruudustik, nimi, email, telefon)) return;
+                        if (kasSisendOK(ruudustik, nimi, email, telefon)) return;
                         Personaalkaart personaalkaart = new Personaalkaart(nimi, email, telefon, kirjedus);
                         kirjutaFaili("personaalkaart.txt", personaalkaart);
+                        näitaTeavitust(ruudustik.getScene().getWindow(), "", "Kaart loodud!");
                     }
                 }
             } else
-                näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Vali kaarditüüp ja sisesta andmed");
+                näitaTeavitust(ruudustik.getScene().getWindow(), "Viga","Vali kaarditüüp ja sisesta andmed");
         });
     }
 
     private boolean kasSisendOK(GridPane ruudustik, String nimi, String email, String telefon) {
         List<String> tühjadVäljad = valideeriVälju(nimi, email, telefon);
         if (tühjadVäljad.size() > 0) {
-            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Palun sisesta väljad:" + tühjadVäljad);
-            return false;
+            näitaTeavitust(ruudustik.getScene().getWindow(), "Viga","Palun sisesta väljad:" + tühjadVäljad);
+            return true;
         }
-        return true;
+        return false;
     }
 
     private List<String> valideeriVälju(String nimi, String email, String telefon) {
@@ -196,7 +201,7 @@ public class Main extends Application {
                             Töökaart töökaart = (Töökaart) loeKaardiObjekt("töökaart.txt");
                             näitaKaarti(ruudustik.getScene().getWindow(), töökaart);
                         } catch (RuntimeException e) {
-                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                            näitaTeavitust(ruudustik.getScene().getWindow(), "Viga", "Loo kaart");
                         }
                     }
                     case Tudengikaart.NIMI -> {
@@ -204,7 +209,7 @@ public class Main extends Application {
                             Tudengikaart tudengikaart = (Tudengikaart) loeKaardiObjekt("tudengikaart.txt");
                             näitaKaarti(ruudustik.getScene().getWindow(), tudengikaart);
                         } catch (RuntimeException e) {
-                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                            näitaTeavitust(ruudustik.getScene().getWindow(), "Viga", "Loo kaart");
                         }
 
                     }
@@ -213,7 +218,7 @@ public class Main extends Application {
                             ArendajaKaart arendajaKaart = (ArendajaKaart) loeKaardiObjekt("arendajakaart.txt");
                             näitaKaarti(ruudustik.getScene().getWindow(), arendajaKaart);
                         } catch (RuntimeException e) {
-                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                            näitaTeavitust(ruudustik.getScene().getWindow(), "Viga", "Loo kaart");
                         }
                     }
                     case Suunamudijakaart.NIMI -> {
@@ -221,7 +226,7 @@ public class Main extends Application {
                             Suunamudijakaart suunamudijakaart = (Suunamudijakaart) loeKaardiObjekt("suunamudijakaart.txt");
                             näitaKaarti(ruudustik.getScene().getWindow(), suunamudijakaart);
                         } catch (RuntimeException e) {
-                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                            näitaTeavitust(ruudustik.getScene().getWindow(), "Viga", "Loo kaart");
                         }
                     }
                     case Personaalkaart.NIMI -> {
@@ -229,12 +234,12 @@ public class Main extends Application {
                             Personaalkaart personaalkaart = (Personaalkaart) loeKaardiObjekt("personaalkaart.txt");
                             näitaKaarti(ruudustik.getScene().getWindow(), personaalkaart);
                         } catch (RuntimeException e) {
-                            näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Loo kaart");
+                            näitaTeavitust(ruudustik.getScene().getWindow(), "Viga", "Loo kaart");
                         }
                     }
                 }
             } else
-                näitaTeavitust(Alert.AlertType.ERROR, ruudustik.getScene().getWindow(), "Viga!", "Vali kaarditüüp");
+                näitaTeavitust(ruudustik.getScene().getWindow(), "Viga", "Vali kaarditüüp");
         });
     }
 
@@ -279,8 +284,8 @@ public class Main extends Application {
         return ruudustik;
     }
 
-    private void näitaTeavitust(Alert.AlertType alertType, Window omanik, String pealkiri, String teavitus) {
-        Alert alert = new Alert(alertType);
+    private void näitaTeavitust(Window omanik, String pealkiri, String teavitus) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(pealkiri);
         alert.setHeaderText(null);
         alert.setGraphic(null);
